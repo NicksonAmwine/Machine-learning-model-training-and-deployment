@@ -1,0 +1,103 @@
+<!-- 
+NAME: AMWINE NICKSON
+
+MACHINE LEARNING ASSIGNMENT
+ -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>model deployment</title>
+    <style>
+        body {
+            background-color: rgb(168, 167, 167);
+        }
+        .format {
+            background-color: rgb(167, 219, 219);
+            margin-top: 60px;
+            margin-bottom: 100px;
+            margin-left: 200px;
+            margin-right: 200px;
+            border-radius: 20px;
+        }
+        h1 {
+            color: rgb(5, 94, 94);
+            text-align: center;
+            padding-top: 20px;
+        }
+        form {
+            padding-left: 100px;
+            padding-bottom: 70px;
+            padding-top: 20px;
+            margin-left: 100px;
+            margin-top: 40px;
+            position:relative;
+            font-size: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        input {
+            border: blue solid 1px;
+            border-radius: 5px;
+            padding: 9px;
+            padding-left: 200px;
+            margin-right: 500px;
+            margin-bottom: 20px;
+        }
+        button {
+            background-color: transparent;
+            border: rgb(25, 25, 184) solid 1.5px;
+            padding: 10px;
+            padding-left: 40px;
+            padding-right: 40px;
+            font-size:20px;
+            border-radius: 30px;
+            margin-left: 100px;
+            transition: 0.7s;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: rgb(83, 199, 238);
+        }
+        .prediction {
+            font-size: 25px;
+            color: rgb(2, 29, 29);
+            text-align: center;
+            margin-bottom: 20px;
+            margin-left: -120px;
+            margin-top: -50px;
+        }
+        @media screen and (max-width: 850px){
+            .format {
+                background-color: rgb(167, 219, 219);
+                margin-top: 60px;
+                margin-bottom: 100px;
+                margin-left: 20px;
+                margin-right: 20px;
+            }
+            form {
+                margin-left: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="format">
+        <h1>Loan Status Prediction Form</h1>
+    <form action="/predict" method="POST">
+        Loan Amount:            <input type="number" name="loan_amount" id="loan_amount" required><br>
+        Lender count:           <input type="number" name="lender_count" id="lender_count" required><br>
+        Repayment term:         <input type="number" name="repayment_term" id="repayment_term" required><br>
+        <button type="submit">Submit</button>
+    </form>
+        {% if prediction %}
+        <div class="prediction">
+            Loan Status Prediction: {{ prediction }}
+        </div>
+        {% endif %}
+    </div>
+    
+</body>
+</html>
